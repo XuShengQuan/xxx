@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("#name").blur(function(){
+					var name=this.value();
+					if(name==null || name==""){
+						
+					}else{
+						$get("userServlet","name="+name,callBack);
+						  
+						  function callBack(data){
+						  	if(data=="true"){
+						  		$("#nameDiv").html("用户名已被使用");
+						  	}else{
+						  		$("#nameDiv").html("用户名可以使用");
+						  	}
+						  } //end of callBack()
+					}
+				}); //end of blur()
+			});
+		</script>
+	</body>
+</html>
